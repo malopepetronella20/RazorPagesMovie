@@ -28,5 +28,8 @@ namespace RazorPagesMovie.Models
         [StringLength(5)]
         [Required]
         public string Rating { get; set; } = string.Empty;
+
+        // Property to hold poster image file name or relative path (e.g. "poster.jpg" or "images/poster.jpg")
+        public string PosterPath { get; set; } = string.Empty;
     }
 }
