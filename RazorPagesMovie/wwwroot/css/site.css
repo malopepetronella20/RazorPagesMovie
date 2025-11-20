@@ -74,3 +74,19 @@ body {
     border: 1px solid var(--accent-pink);
     color: var(--text-light);
 }
+.landing-hero {
+    text-align: center;
+    padding: 100px 20px;
+    background: linear-gradient(to right, var(--primary-grey), var(--secondary-grey));
+    color: var(--accent-pink);
+}
+
+    .landing-hero h1 {
+        font-size: 3rem;
+        margin-bottom: 20px;
+    }
+
+    .landing-hero p {
+        font-size: 1.2rem;
+        margin-bottom: 30px;
+    }
