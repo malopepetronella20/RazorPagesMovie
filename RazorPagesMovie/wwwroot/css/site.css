@@ -20,3 +20,57 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+.form-floating > .form-control-plaintext::placeholder, .form-floating > .form-control::placeholder {
+  color: var(--bs-secondary-color);
+  text-align: end;
+}
+
+.form-floating > .form-control-plaintext:focus::placeholder, .form-floating > .form-control:focus::placeholder {
+  text-align: start;
+}
+/* Base colors */
+:root {
+    --primary-grey: #2c2c2c; /* dark grey background */
+    --secondary-grey: #444444; /* lighter grey for cards */
+    --accent-pink: #ff4081; /* vibrant pink accent */
+    --text-light: #f5f5f5; /* light text */
+}
+
+/* Global body styling */
+body {
+    background-color: var(--primary-grey);
+    color: var(--text-light);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Navigation bar */
+.navbar {
+    background-color: var(--secondary-grey);
+    border-bottom: 2px solid var(--accent-pink);
+}
+
+    .navbar a {
+        color: var(--text-light);
+    }
+
+        .navbar a:hover {
+            color: var(--accent-pink);
+        }
+
+/* Buttons */
+.btn-primary {
+    background-color: var(--accent-pink);
+    border: none;
+}
+
+    .btn-primary:hover {
+        background-color: #e73370; /* darker pink */
+    }
+
+/* Cards (movie listings) */
+.card {
+    background-color: var(--secondary-grey);
+    border: 1px solid var(--accent-pink);
+    color: var(--text-light);
+}
