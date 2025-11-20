@@ -8,7 +8,17 @@
             <img src="~/images/@movie.PosterPath" alt="@movie.Title" class="movie-poster" />
             <h3>@movie.Title</h3>
             <p>@movie.ReleaseDate.ToShortDateString()</p>
+
+            <!-- Star rating -->
+            <div class="star-rating">
+                @for (int i = 1; i <= 5; i++)
+                {
+                    <span class="star @(Convert.ToDouble(movie.Rating) >= i ? "filled" : "")">&#9733;</span>
+                }
+            </div>
+
             <a class="btn btn-primary" asp-page="./Details" asp-route-id="@movie.Id">View Details</a>
         </div>
     }
 </div>
+
