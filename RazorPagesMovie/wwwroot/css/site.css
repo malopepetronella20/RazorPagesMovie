@@ -116,3 +116,15 @@ body {
     height: 300px;
     object-fit: cover;
 }
+.star-rating {
+    margin: 10px 0;
+}
+
+.star {
+    font-size: 1.5rem;
+    color: #555;
+}
+
+    .star.filled {
+        color: var(--accent-pink);
+    }
