@@ -2,8 +2,8 @@
 @model RazorPagesMovie.Pages.Movies.IndexModel
 
 @{
-    ViewData["Title"] = "Movies";
     Layout = "_Layout";
+    ViewData["Title"] = "Movies";
 }
 
 <h1>Movies</h1>
@@ -25,22 +25,6 @@
 <div class="movie-grid">
     @foreach (var movie in Model.Movie)
     {
-        <div class="movie-card">
-            <img src="~/images/@movie.PosterUrl" alt="@movie.Title" class="movie-poster" />
-            <div class="movie-info">
-                <h3>@movie.Title</h3>
-                <p>@movie.Genre</p>
-                <p>Release: @movie.ReleaseDate.ToShortDateString()</p>
-
-                <div class="star-rating">
-                    @for (int i = 1; i <= 5; i++)
-                    {
-                        <span class="star @(i <= movie.StarRating ? "filled" : "")">★</span>
-                    }
-                </div>
-
-                <a class="btn btn-primary" asp-page="./Details" asp-route-id="@movie.Id">View Details</a>
-            </div>
-        </div>
+        <partial name="_MovieCard" model="movie" />
     }
 </div>
