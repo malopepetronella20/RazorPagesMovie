@@ -1,0 +1,19 @@
+﻿@model RazorPagesMovie.Models.Movie
+
+<div class="movie-card">
+    <img src="~/images/@Model.PosterUrl" alt="@Model.Title" class="movie-poster" />
+    <div class="movie-info">
+        <h3>@Model.Title</h3>
+        <p>@Model.ReleaseDate.ToShortDateString()</p>
+
+        <div class="star-rating">
+            @for (int i = 1; i <= 5; i++)
+            {
+                <span class="star @(i <= Model.StarRating ? "filled" : "")">★</span>
+            }
+        </div>
+
+        <a class="btn btn-primary" asp-page="/Movies/Details" asp-route-id="@Model.Id">Details</a>
+    </div>
+</div>
+

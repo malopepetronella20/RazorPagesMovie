@@ -93,3 +93,13 @@ footer {
         bottom: 0;
         background: rgba(26, 26, 26, 0.6); /* grey overlay */
     }
+    .hero::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(26, 26, 26, 0.6); /* semi-transparent grey */
+    }
+

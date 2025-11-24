@@ -2,15 +2,16 @@
 @model RazorPagesMovie.Pages.Movies.IndexModel
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Movies";
 }
 
-<h1>Index</h1>
+<h1>Movies</h1>
 
 <p>
     <a asp-page="Create">Create New</a>
 </p>
-<form>
+
+<form method="get">
     <p>
         <select asp-for="MovieGenre" asp-items="Model.Genres">
             <option value="">All</option>
@@ -20,55 +21,24 @@
     </p>
 </form>
 
-<!-- Moved movie-grid div outside of table -->
 <div class="movie-grid">
     @foreach (var movie in Model.Movie)
     {
         <div class="movie-card">
-            <img src="@movie.PosterUrl" alt="@movie.Title" class="movie-poster" />
+            <img src="~/images/@movie.PosterUrl" alt="@movie.Title" class="movie-poster" />
             <h3>@movie.Title</h3>
             <p>@movie.Genre</p>
-            <p>Rated: @movie.ContentRating</p>
-            <p>Stars: ⭐ @movie.StarRating</p>
+            <p>Release: @movie.ReleaseDate.ToShortDateString()</p>
 
+            <!-- Star rating -->
             <div class="star-rating">
                 @for (int i = 1; i <= 5; i++)
                 {
                     <span class="star @(i <= movie.StarRating ? "filled" : "")">★</span>
                 }
             </div>
+
+            <a class="btn btn-primary" asp-page="./Details" asp-route-id="@movie.Id">View Details</a>
         </div>
     }
 </div>
-
-<table class="table">
-    <tbody>
-        @foreach (var item in Model.Movie) {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Title)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.ReleaseDate)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Genre)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Price)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.StarRating)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.StarRating)
-                </td>
-                <td>
-                    <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
-                    <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
-                    <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>
