@@ -1,6 +1,9 @@
 ﻿@page
 @model RazorPagesMovie.Pages.Movies.IndexModel
 
+@{
+    Layout = "_Layout";
+}
 
 <div class="movie-grid">
     @foreach (var movie in Model.Movie)
