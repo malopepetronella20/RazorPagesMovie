@@ -5,6 +5,16 @@
     Layout = "_Layout";
 }
 
+<!-- Hero section should be outside the movie loop -->
+<div class="landing-hero">
+    <h1>Welcome to LapetroMovies</h1>
+    <p>Your gateway to streaming movies in style.</p>
+    <a class="btn btn-primary" href="/Movies">Browse Movies</a>
+</div>
+
+<img src="~/images/1.png" alt="Hero Banner" class="hero-banner" />
+
+<!-- Movie grid -->
 <div class="movie-grid">
     @foreach (var movie in Model.Movie)
     {
@@ -17,19 +27,11 @@
             <div class="star-rating">
                 @for (int i = 1; i <= 5; i++)
                 {
-                    <span class="star @(Convert.ToDouble(movie.StarRating) >= i ? "filled" : "")">&#9733;</span>
+                    <span class="star @(Convert.ToDouble(movie.StarRating) >= i ? "filled" : "")">★</span>
                 }
             </div>
 
             <a class="btn btn-primary" asp-page="./Details" asp-route-id="@movie.Id">View Details</a>
         </div>
-        <div class="landing-hero">
-            <h1>Welcome to LapetroMovies</h1>
-            <p>Your gateway to streaming movies in style.</p>
-            <a class="btn btn-primary" href="/Movies">Browse Movies</a>
-        </div>
-        <img src="~/images/1.png" alt="Hero Banner" />
-
     }
 </div>
-

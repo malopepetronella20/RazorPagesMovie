@@ -3,24 +3,22 @@
 
 @{
     ViewData["Title"] = "Movies";
-}
-@{
     Layout = "_Layout";
 }
 
 <h1>Movies</h1>
 
 <p>
-    <a asp-page="Create">Create New</a>
+    <a asp-page="Create" class="btn btn-primary">Create New</a>
 </p>
 
-<form method="get">
+<form method="get" class="filter-form">
     <p>
         <select asp-for="MovieGenre" asp-items="Model.Genres">
             <option value="">All</option>
         </select>
         <label>Title: <input type="text" asp-for="SearchString" /></label>
-        <input type="submit" value="Filter" />
+        <input type="submit" value="Filter" class="btn btn-secondary" />
     </p>
 </form>
 
@@ -29,19 +27,20 @@
     {
         <div class="movie-card">
             <img src="~/images/@movie.PosterUrl" alt="@movie.Title" class="movie-poster" />
-            <h3>@movie.Title</h3>
-            <p>@movie.Genre</p>
-            <p>Release: @movie.ReleaseDate.ToShortDateString()</p>
+            <div class="movie-info">
+                <h3>@movie.Title</h3>
+                <p>@movie.Genre</p>
+                <p>Release: @movie.ReleaseDate.ToShortDateString()</p>
 
-            <!-- Star rating -->
-            <div class="star-rating">
-                @for (int i = 1; i <= 5; i++)
-                {
-                    <span class="star @(i <= movie.StarRating ? "filled" : "")">★</span>
-                }
+                <div class="star-rating">
+                    @for (int i = 1; i <= 5; i++)
+                    {
+                        <span class="star @(i <= movie.StarRating ? "filled" : "")">★</span>
+                    }
+                </div>
+
+                <a class="btn btn-primary" asp-page="./Details" asp-route-id="@movie.Id">View Details</a>
             </div>
-
-            <a class="btn btn-primary" asp-page="./Details" asp-route-id="@movie.Id">View Details</a>
         </div>
     }
 </div>
