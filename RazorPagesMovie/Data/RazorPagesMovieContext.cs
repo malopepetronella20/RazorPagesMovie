@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using RazorPagesMovie.Migrations;
 using RazorPagesMovie.Models;
 
 namespace RazorPagesMovie.Data

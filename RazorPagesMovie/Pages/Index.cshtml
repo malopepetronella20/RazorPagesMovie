@@ -1,11 +1,12 @@
 ﻿@page
 @model RazorPagesMovie.Pages.Movies.IndexModel
 
+
 <div class="movie-grid">
     @foreach (var movie in Model.Movie)
     {
         <div class="movie-card">
-            <img src="~/images/@movie.PosterPath" alt="@movie.Title" class="movie-poster" />
+            <img src="~/images/@movie.PosterUrl" alt="@movie.Title" class="movie-poster" />
             <h3>@movie.Title</h3>
             <p>@movie.ReleaseDate.ToShortDateString()</p>
 
@@ -13,12 +14,19 @@
             <div class="star-rating">
                 @for (int i = 1; i <= 5; i++)
                 {
-                    <span class="star @(Convert.ToDouble(movie.Rating) >= i ? "filled" : "")">&#9733;</span>
+                    <span class="star @(Convert.ToDouble(movie.StarRating) >= i ? "filled" : "")">&#9733;</span>
                 }
             </div>
 
             <a class="btn btn-primary" asp-page="./Details" asp-route-id="@movie.Id">View Details</a>
         </div>
+        <div class="landing-hero">
+            <h1>Welcome to LapetroMovies</h1>
+            <p>Your gateway to streaming movies in style.</p>
+            <a class="btn btn-primary" href="/Movies">Browse Movies</a>
+        </div>
+        <img src="~/images/1.png" alt="Hero Banner" />
+
     }
 </div>
 

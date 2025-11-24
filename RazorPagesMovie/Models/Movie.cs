@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace RazorPagesMovie.Models
@@ -24,12 +25,15 @@ namespace RazorPagesMovie.Models
         [StringLength(30)]
         public string Genre { get; set; } = string.Empty;
 
-        [RegularExpression(@"^[A-Z]+[a-zA-Z0-9""'\s-]*$")]
+        // Content rating like "PG", "R", etc.
         [StringLength(5)]
-        [Required]
-        public string Rating { get; set; } = string.Empty;
+        public string ContentRating { get; set; } = string.Empty;
 
-        // Property to hold poster image file name or relative path (e.g. "poster.jpg" or "images/poster.jpg")
-        public string PosterPath { get; set; } = string.Empty;
+        // Star rating (numeric, e.g. 4.5 out of 5)
+        [Range(0.0, 5.0)]
+        public double StarRating { get; set; }
+
+        // Poster image file name or URL
+        public string PosterUrl { get; set; } = string.Empty;
     }
 }
