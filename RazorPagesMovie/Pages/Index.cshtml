@@ -8,8 +8,18 @@
 
 <section class="hero">
     <div class="hero-overlay">
-        <h1>Welcome to <span class="brand">LapetroMovies</span></h1>
-        <p>Your gateway to streaming movies in style.</p>
-        <a class="btn btn-primary" href="/Movies">Browse Movies</a>
+        <h1 class="hero-title">Welcome to <span class="brand">LapetroMovies</span></h1>
+        <p class="hero-subtitle">Your gateway to streaming movies in style!</p>
+        <a class="btn btn-primary hero-btn" href="/Movies">Browse Movies</a>
+    </div>
+</section>
+
+<section class="featured-row">
+    <h2>Featured Movies</h2>
+    <div class="movie-grid">
+        @foreach (var movie in Model.Movie.Take(6)) // Show top 6
+        {
+            <partial name="_MovieCard" model="movie" />
+        }
     </div>
 </section>
