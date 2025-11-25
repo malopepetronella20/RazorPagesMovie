@@ -6,6 +6,7 @@
     ViewData["Title"] = "Home";
 }
 
+<!-- Hero Section -->
 <section class="hero">
     <div class="hero-overlay">
         <h1 class="hero-title">Welcome to <span class="brand">LapetroMovies</span></h1>
@@ -14,12 +15,31 @@
     </div>
 </section>
 
-<section class="featured-row">
-    <h2>Featured Movies</h2>
-    <div class="movie-grid">
-        @foreach (var movie in Model.Movie.Take(6)) // Show top 6
+<!-- Trending Now -->
+<section class="trending-row">
+    <h2>🔥 Trending Now</h2>
+    <div class="scroll-row">
+        @foreach (var movie in Model.Movie.Take(10))
         {
             <partial name="_MovieCard" model="movie" />
         }
     </div>
+</section>
+
+<!-- Featured Movies -->
+<section class="featured-row">
+    <h2>🎥 Featured Movies</h2>
+    <div class="movie-grid">
+        @foreach (var movie in Model.Movie.Skip(10).Take(6))
+        {
+            <partial name="_MovieCard" model="movie" />
+        }
+    </div>
+</section>
+
+<!-- Call to Action -->
+<section class="cta-section">
+    <h2>Join LapetroMovies Today</h2>
+    <p>Sign up to unlock exclusive content and personalized recommendations.</p>
+    <a class="btn btn-primary" href="/Account/Register">Sign Up</a>
 </section>

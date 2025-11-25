@@ -41,7 +41,6 @@ body {
     height: 90vh;
     background: url('/images/1.png') center no-repeat;
     background-size: cover;
-    display: flex;
     align-items: center;
     justify-content: center;
 }
@@ -91,7 +90,35 @@ body {
         transform: scale(1.05);
     }
 
-/* Movie Grid */
+/* Trending Scroll */
+.trending-row {
+    padding: 2rem;
+    text-align: center;
+}
+
+    .trending-row h2 {
+        color: #ff69b4;
+        margin-bottom: 1rem;
+        font-size: 2rem;
+    }
+
+.scroll-row {
+    display: flex;
+    overflow-x: auto;
+    gap: 1rem;
+    padding-bottom: 1rem;
+}
+
+    .scroll-row::-webkit-scrollbar {
+        height: 8px;
+    }
+
+    .scroll-row::-webkit-scrollbar-thumb {
+        background-color: #ff69b4;
+        border-radius: 4px;
+    }
+
+/* Featured Grid */
 .featured-row {
     padding: 2rem;
     text-align: center;
@@ -110,6 +137,28 @@ body {
     justify-content: center;
 }
 
+/* CTA Section */
+.cta-section {
+    background-color: #2a2a2a;
+    padding: 3rem;
+    text-align: center;
+    margin-top: 3rem;
+    border-top: 2px solid #ff69b4;
+}
+
+    .cta-section h2 {
+        font-size: 2rem;
+        color: #ff69b4;
+        margin-bottom: 1rem;
+    }
+
+    .cta-section p {
+        font-size: 1.2rem;
+        margin-bottom: 2rem;
+        color: #f0f0f0;
+    }
+
+/* Movie Card */
 .movie-card {
     background-color: #2a2a2a;
     border-radius: 10px;
@@ -118,6 +167,7 @@ body {
     color: #f0f0f0;
     box-shadow: 0 0 10px rgba(255, 105, 180, 0.3);
     transition: transform 0.3s ease;
+    flex-shrink: 0;
 }
 
     .movie-card:hover {
@@ -154,4 +204,20 @@ footer {
     padding: 1rem;
     text-align: center;
     color: #aaa;
+}
+.hero {
+    background: url('/images/hero-banner.jpg') center/cover no-repeat;
+    height: 80vh;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.btn-primary {
+    background-color: #e50914;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
 }
