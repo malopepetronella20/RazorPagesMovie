@@ -1,4 +1,7 @@
-﻿<section class="carousel">
+﻿
+<@model RazorPagesMovie.Models.MovieCarouselViewModel
+
+<section class="carousel">
     <h2>@Model.Title</h2>
     <div class="movie-row">
         @foreach (var movie in Model.Movies)

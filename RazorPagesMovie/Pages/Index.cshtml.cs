@@ -1,25 +1,32 @@
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
-using RazorPagesMovie.Models; // Assuming your Movie model is here
-using System.Collections.Generic;
+﻿using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.EntityFrameworkCore;
+using RazorPagesMovie.Data;
+using RazorPagesMovie.Models;
 
-namespace RazorPagesMovie.Pages
+public class IndexModel : PageModel
 {
-    public class IndexModel : PageModel
+    public MovieCarouselViewModel TrendingMovies { get; set; }
+    public MovieCarouselViewModel FeaturedMovies { get; set; }
+
+    private readonly MovieContext _context;
+
+    public IndexModel(MovieContext context)
     {
-        private readonly ILogger<IndexModel> _logger;
+        _context = context;
+    }
 
-        public IndexModel(ILogger<IndexModel> logger)
+    public void OnGet()
+    {
+        TrendingMovies = new MovieCarouselViewModel
         {
-            _logger = logger;
-        }
+            Title = "🔥 Trending Now",
+            Movies = _context.Movie.Take(10).ToList()
+        };
 
-        public List<Movie> Movie { get; set; } = new List<Movie>();
-
-        public void OnGet()
+        FeaturedMovies = new MovieCarouselViewModel
         {
-            // Example: Populate Movie list with data
-            // Movie = ... fetch movies from database or service
-        }
+            Title = "🎥 Featured Movies",
+            Movies = _context.Movie.Skip(10).Take(6).ToList()
+        };
     }
 }
