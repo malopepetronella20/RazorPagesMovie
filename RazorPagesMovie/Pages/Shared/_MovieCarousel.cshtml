@@ -1,0 +1,12 @@
+﻿<section class="carousel">
+    <h2>@Model.Title</h2>
+    <div class="movie-row">
+        @foreach (var movie in Model.Movies)
+        {
+            <div class="movie-card">
+                <img src="@movie.ImageUrl" alt="@movie.Title" />
+                <p>@movie.Title</p>
+            </div>
+        }
+    </div>
+</section>
