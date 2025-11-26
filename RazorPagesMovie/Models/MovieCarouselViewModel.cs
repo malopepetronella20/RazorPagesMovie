@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace RazorPagesMovie.Models
+﻿namespace RazorPagesMovie.Models
 {
     public class MovieCarouselViewModel
     {
@@ -8,5 +6,3 @@ namespace RazorPagesMovie.Models
         public List<Movie> Movies { get; set; } = new();
     }
 }
-
-

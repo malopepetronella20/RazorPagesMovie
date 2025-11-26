@@ -1,32 +1,34 @@
 ﻿using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.EntityFrameworkCore;
-using RazorPagesMovie.Data;
 using RazorPagesMovie.Models;
+using RazorPagesMovie.Data;
 
-public class IndexModel : PageModel
+namespace RazorPagesMovie.Pages
 {
-    public MovieCarouselViewModel TrendingMovies { get; set; }
-    public MovieCarouselViewModel FeaturedMovies { get; set; }
-
-    private readonly MovieContext _context;
-
-    public IndexModel(MovieContext context)
+    public class IndexModel : PageModel
     {
-        _context = context;
-    }
+        public MovieCarouselViewModel TrendingMovies { get; set; }
+        public MovieCarouselViewModel FeaturedMovies { get; set; }
 
-    public void OnGet()
-    {
-        TrendingMovies = new MovieCarouselViewModel
-        {
-            Title = "🔥 Trending Now",
-            Movies = _context.Movie.Take(10).ToList()
-        };
+        private readonly MovieContext _context;
 
-        FeaturedMovies = new MovieCarouselViewModel
+        public IndexModel(MovieContext context)
         {
-            Title = "🎥 Featured Movies",
-            Movies = _context.Movie.Skip(10).Take(6).ToList()
-        };
+            _context = context;
+        }
+
+        public void OnGet()
+        {
+            TrendingMovies = new MovieCarouselViewModel
+            {
+                Title = "🔥 Trending Now",
+                Movies = _context.Movie.Take(10).ToList()
+            };
+
+            FeaturedMovies = new MovieCarouselViewModel
+            {
+                Title = "🎥 Featured Movies",
+                Movies = _context.Movie.Skip(10).Take(6).ToList()
+            };
+        }
     }
 }

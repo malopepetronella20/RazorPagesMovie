@@ -1,5 +1,4 @@
-﻿
-<@model RazorPagesMovie.Models.MovieCarouselViewModel
+﻿@model RazorPagesMovie.Models.MovieCarouselViewModel
 
 <section class="carousel">
     <h2>@Model.Title</h2>
@@ -7,7 +6,7 @@
         @foreach (var movie in Model.Movies)
         {
             <div class="movie-card">
-                <img src="@movie.ImageUrl" alt="@movie.Title" />
+                <img src="@movie.PosterUrl" alt="@movie.Title" />
                 <p>@movie.Title</p>
             </div>
         }
