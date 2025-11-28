@@ -21,8 +21,13 @@
             </div>
         </nav>
     </header>
+
+    <!-- Hero section is fine here -->
     <partial name="_HeroSection" />
-    <partial name="_MovieCard" />
+
+    <!-- Removed _MovieCard call (this was causing the error) -->
+    <!-- Movie cards should only be rendered inside _MovieCarousel.cshtml -->
+
     <main role="main" class="container-fluid">
         @RenderBody()
     </main>

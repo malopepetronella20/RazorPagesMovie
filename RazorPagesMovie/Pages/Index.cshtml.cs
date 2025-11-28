@@ -6,12 +6,12 @@ namespace RazorPagesMovie.Pages
 {
     public class IndexModel : PageModel
     {
-        public MovieCarouselViewModel TrendingMovies { get; set; }
-        public MovieCarouselViewModel FeaturedMovies { get; set; }
+        public MovieCarouselViewModel TrendingMovies { get; set; } = new MovieCarouselViewModel();
+        public MovieCarouselViewModel FeaturedMovies { get; set; } = new MovieCarouselViewModel();
 
-        private readonly MovieContext _context;
+        private readonly RazorPagesMovieContext _context;
 
-        public IndexModel(MovieContext context)
+        public IndexModel(RazorPagesMovieContext context)
         {
             _context = context;
         }

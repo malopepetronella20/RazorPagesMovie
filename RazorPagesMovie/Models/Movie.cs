@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace RazorPagesMovie.Models
 {
@@ -13,12 +14,13 @@ namespace RazorPagesMovie.Models
         [Required]
         public string Genre { get; set; } = string.Empty;
 
+
         [Required]
         [DataType(DataType.Date)]
         public DateTime ReleaseDate { get; set; }
 
         [Required]
-        [Range(0, 1000)]
+        [Column(TypeName = "decimal(18,2)")]
         public decimal Price { get; set; }
 
         public string? StarRating { get; set; }
