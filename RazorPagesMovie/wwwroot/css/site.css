@@ -1,3 +1,4 @@
+/* Base */
 body {
     margin: 0;
     font-family: 'Segoe UI', sans-serif;
@@ -37,12 +38,14 @@ body {
 
 /* Hero Section */
 .hero {
-    position: relative;
-    height: 90vh;
-    background: url('/images/1.png') center no-repeat;
+    background: url('/images/hero-banner.jpg') center no-repeat;
     background-size: cover;
+    height: 80vh;
+    position: relative;
+    display: flex;
     align-items: center;
     justify-content: center;
+    color: white;
 }
 
 .hero-overlay {
@@ -59,11 +62,6 @@ body {
     color: #ff69b4;
     text-shadow: 0 0 20px #ff69b4;
     margin-bottom: 1rem;
-}
-
-.brand {
-    color: #ffffff;
-    text-shadow: 0 0 15px #ff69b4;
 }
 
 .hero-subtitle {
@@ -90,72 +88,34 @@ body {
         transform: scale(1.05);
     }
 
-/* Trending Scroll */
-.trending-row {
+/* Movie Rows */
+.trending-row, .featured-row {
     padding: 2rem;
     text-align: center;
 }
 
-    .trending-row h2 {
+    .trending-row h2, .featured-row h2 {
         color: #ff69b4;
         margin-bottom: 1rem;
         font-size: 2rem;
     }
 
-.scroll-row {
+.scroll-row, .movie-row {
     display: flex;
     overflow-x: auto;
     gap: 1rem;
     padding-bottom: 1rem;
 }
 
-    .scroll-row::-webkit-scrollbar {
+    .scroll-row::-webkit-scrollbar,
+    .movie-row::-webkit-scrollbar {
         height: 8px;
     }
 
-    .scroll-row::-webkit-scrollbar-thumb {
+    .scroll-row::-webkit-scrollbar-thumb,
+    .movie-row::-webkit-scrollbar-thumb {
         background-color: #ff69b4;
         border-radius: 4px;
-    }
-
-/* Featured Grid */
-.featured-row {
-    padding: 2rem;
-    text-align: center;
-}
-
-    .featured-row h2 {
-        color: #ff69b4;
-        margin-bottom: 2rem;
-        font-size: 2rem;
-    }
-
-.movie-grid {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 2rem;
-    justify-content: center;
-}
-
-/* CTA Section */
-.cta-section {
-    background-color: #2a2a2a;
-    padding: 3rem;
-    text-align: center;
-    margin-top: 3rem;
-    border-top: 2px solid #ff69b4;
-}
-
-    .cta-section h2 {
-        font-size: 2rem;
-        color: #ff69b4;
-        margin-bottom: 1rem;
-    }
-
-    .cta-section p {
-        font-size: 1.2rem;
-        margin-bottom: 2rem;
-        color: #f0f0f0;
     }
 
 /* Movie Card */
@@ -198,6 +158,27 @@ body {
         color: #ff69b4;
     }
 
+/* CTA Section */
+.cta-section {
+    background-color: #2a2a2a;
+    padding: 3rem;
+    text-align: center;
+    margin-top: 3rem;
+    border-top: 2px solid #ff69b4;
+}
+
+    .cta-section h2 {
+        font-size: 2rem;
+        color: #ff69b4;
+        margin-bottom: 1rem;
+    }
+
+    .cta-section p {
+        font-size: 1.2rem;
+        margin-bottom: 2rem;
+        color: #f0f0f0;
+    }
+
 /* Footer */
 footer {
     background-color: #2a2a2a;
@@ -205,51 +186,3 @@ footer {
     text-align: center;
     color: #aaa;
 }
-.hero {
-    background: url('/images/hero-banner.jpg') center no-repeat;
-    background-size: cover;
-    height: 80vh;
-    position: relative;
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.hero-overlay {
-    background: rgba(0, 0, 0, 0.6); /* dark overlay */
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.hero-content h1 {
-    font-weight: bold;
-    color: #e50914; /* your pink accent */
-}
-
-.btn-primary {
-    background-color: #e50914;
-    border: none;
-}
-
-    .btn-primary:hover {
-        background-color: #f6121d;
-    }
-
-.movie-row {
-    display: flex;
-    overflow-x: auto;
-    gap: 15px;
-}
-
-.movie-card {
-    min-width: 150px;
-    transition: transform 0.3s;
-}
-
-    .movie-card:hover {
-        transform: scale(1.05);
-    }
