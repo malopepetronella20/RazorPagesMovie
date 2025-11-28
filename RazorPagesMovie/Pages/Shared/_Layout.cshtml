@@ -16,17 +16,16 @@
                 <a class="nav-item nav-link" asp-page="/Index">Home</a>
                 <a class="nav-item nav-link" asp-page="/Privacy">Privacy</a>
                 <a class="nav-item nav-link" asp-page="/Movies/Index">Movies</a>
+
+                <!-- ✅ Fixed Identity links -->
                 <a class="nav-item nav-link" asp-area="Identity" asp-page="/Account/Login">Sign In</a>
                 <a class="nav-item nav-link" asp-area="Identity" asp-page="/Account/Register">Sign Up</a>
             </div>
         </nav>
     </header>
 
-    <!-- Hero section is fine here -->
+    <!-- Hero section -->
     <partial name="_HeroSection" />
-
-    <!-- Removed _MovieCard call (this was causing the error) -->
-    <!-- Movie cards should only be rendered inside _MovieCarousel.cshtml -->
 
     <main role="main" class="container-fluid">
         @RenderBody()
