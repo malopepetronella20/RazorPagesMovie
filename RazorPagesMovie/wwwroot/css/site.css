@@ -1,3 +1,68 @@
+/* Identity Login/Register Styling */
+.identity-container {
+    max-width: 500px;
+    margin: 4rem auto;
+    background-color: #2a2a2a; /* grey background */
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(255, 105, 180, 0.4); /* pink glow */
+    color: #f0f0f0;
+}
+
+    .identity-container h1,
+    .identity-container h2 {
+        color: #ff69b4; /* pink titles */
+        text-align: center;
+        margin-bottom: 1.5rem;
+    }
+
+    .identity-container label {
+        font-weight: bold;
+        color: #f0f0f0;
+    }
+
+    .identity-container input {
+        background-color: #1a1a1a;
+        border: 1px solid #ff69b4;
+        color: #f0f0f0;
+        border-radius: 5px;
+        padding: 0.5rem;
+        width: 100%;
+        margin-bottom: 1rem;
+    }
+
+        .identity-container input:focus {
+            outline: none;
+            border-color: #f0f0f0;
+            box-shadow: 0 0 10px #ff69b4;
+        }
+
+    .identity-container .btn-primary {
+        background-color: #ff69b4;
+        border: none;
+        color: #1a1a1a;
+        font-weight: bold;
+        width: 100%;
+        padding: 0.75rem;
+        border-radius: 5px;
+        transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+        .identity-container .btn-primary:hover {
+            background-color: #f0f0f0;
+            color: #1a1a1a;
+            transform: scale(1.05);
+        }
+
+    .identity-container a {
+        color: #ff69b4;
+        text-decoration: none;
+    }
+
+        .identity-container a:hover {
+            text-decoration: underline;
+        }
+
 /* Base */
 body {
     margin: 0;
