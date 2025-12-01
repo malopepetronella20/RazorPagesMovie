@@ -8,6 +8,23 @@
     box-shadow: 0 0 20px rgba(255, 105, 180, 0.4); /* pink glow */
     color: #f0f0f0;
 }
+.identity-background {
+    background: linear-gradient(to bottom right, #2c2c2c, #ff69b4); /* grey to pink */
+    color: white;
+    min-height: 100vh;
+    padding-top: 50px;
+}
+
+input, button {
+    background-color: #333;
+    color: white;
+    border: 1px solid #ff69b4;
+}
+
+    button:hover {
+        background-color: #ff69b4;
+        color: black;
+    }
 
     .identity-container h1,
     .identity-container h2 {
