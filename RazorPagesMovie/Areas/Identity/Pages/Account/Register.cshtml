@@ -4,6 +4,11 @@
     ViewData["Title"] = "Register";
 }
 
+@{
+    Layout = "/Pages/Shared/_LayoutIdentity.cshtml";
+}
+
+
 <div class="identity-container">
     <h1>@ViewData["Title"]</h1>
     <form id="registerForm" asp-route-returnUrl="@Model.ReturnUrl" method="post">
