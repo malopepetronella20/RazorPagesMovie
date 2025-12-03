@@ -11,15 +11,13 @@ builder.Services.AddDbContext<RazorPagesMovieContext>(options =>
 // Register ApplicationDbContext for Identity
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
-builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
-    .AddRoles<IdentityRole>() // ✅ enable roles
-    .AddEntityFrameworkStores<ApplicationDbContext>();
 
-
+// ✅ Register Identity once, with roles enabled
 builder.Services.AddDefaultIdentity<IdentityUser>(options =>
 {
-    options.SignIn.RequireConfirmedAccount = false;
+    options.SignIn.RequireConfirmedAccount = false; // you can set true if you want email confirmation
 })
+.AddRoles<IdentityRole>() // enable roles
 .AddEntityFrameworkStores<ApplicationDbContext>();
 
 builder.Services.AddRazorPages();
