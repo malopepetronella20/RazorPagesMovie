@@ -3,7 +3,8 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - LapetroMovies</title>
+    <title>@(ViewData["Title"] ?? "LapetroMovies") - LapetroMovies</title>
+
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="icon" href="/images/favicon.png" type="image/png" />
@@ -16,8 +17,18 @@
                 <a asp-page="/Index">Home</a>
                 <a asp-page="/Privacy">Privacy</a>
                 <a asp-page="/Movies/Index">Movies</a>
-                <a asp-area="Identity" asp-page="/Account/Login">Sign In</a>
-                <a asp-area="Identity" asp-page="/Account/Register">Sign Up</a>
+
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <form asp-area="Identity" asp-page="/Account/Logout" method="post" class="d-inline">
+                        <button type="submit" class="btn btn-outline-light">Logout</button>
+                    </form>
+                }
+                else
+                {
+                    <a asp-area="Identity" asp-page="/Account/Login">Sign In</a>
+                    <a asp-area="Identity" asp-page="/Account/Register">Sign Up</a>
+                }
             </div>
         </nav>
     </header>

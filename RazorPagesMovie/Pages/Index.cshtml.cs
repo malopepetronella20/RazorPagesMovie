@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc.RazorPages;
+﻿
+using Microsoft.AspNetCore.Mvc.RazorPages;
 using RazorPagesMovie.Models;
 using RazorPagesMovie.Data;
 

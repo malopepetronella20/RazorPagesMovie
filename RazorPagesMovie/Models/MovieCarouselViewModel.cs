@@ -6,9 +6,9 @@ namespace RazorPagesMovie.Models
 {
     public class MovieCarouselViewModel
     {
-        public string Title { get; set; }
-        public int Id { get; set; }
-        public IEnumerable<Movie> Movies { get; set; }
+        public string Title { get; set; } = string.Empty; // ✅ Initialized
+        public List<Movie> Movies { get; set; } = new();  // ✅ Initialized
     }
+
 }
 
