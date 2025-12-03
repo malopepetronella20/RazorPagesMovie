@@ -30,6 +30,12 @@ if (!app.Environment.IsDevelopment())
     app.UseExceptionHandler("/Error");
     app.UseHsts();
 }
+using (var scope = app.Services.CreateScope())
+{
+    var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
+    await RazorPagesMovie.Data.SeedData.SeedRoles(roleManager);
+}
+
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
