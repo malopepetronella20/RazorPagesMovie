@@ -11,6 +11,10 @@ builder.Services.AddDbContext<RazorPagesMovieContext>(options =>
 // Register ApplicationDbContext for Identity
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+    .AddRoles<IdentityRole>() // ✅ enable roles
+    .AddEntityFrameworkStores<ApplicationDbContext>();
+
 
 builder.Services.AddDefaultIdentity<IdentityUser>(options =>
 {
