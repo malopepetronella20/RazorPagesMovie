@@ -25,5 +25,6 @@ namespace RazorPagesMovie.Models
 
         public string? StarRating { get; set; }
         public string? PosterUrl { get; set; }
+       
     }
 }
