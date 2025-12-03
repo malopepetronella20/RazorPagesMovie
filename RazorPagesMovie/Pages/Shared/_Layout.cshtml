@@ -18,7 +18,7 @@
                 <a asp-page="/Privacy">Privacy</a>
                 <a asp-page="/Movies/Index">Movies</a>
 
-                @if (User.Identity.IsAuthenticated)
+                @if (User?.Identity != null && User.Identity.IsAuthenticated)
                 {
                     <form asp-area="Identity" asp-page="/Account/Logout" method="post" class="d-inline">
                         <button type="submit" class="btn btn-outline-light">Logout</button>
@@ -29,6 +29,7 @@
                     <a asp-area="Identity" asp-page="/Account/Login">Sign In</a>
                     <a asp-area="Identity" asp-page="/Account/Register">Sign Up</a>
                 }
+
             </div>
         </nav>
     </header>
