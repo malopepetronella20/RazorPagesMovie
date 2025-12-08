@@ -1,0 +1,11 @@
+@model RazorPagesMovie.Models.Movie
+
+<div class="movie-card">
+    <img src="@Model.ImageUrl" alt="@Model.Title" class="movie-poster" />
+    <div class="movie-info">
+        <h4>@Model.Title</h4>
+        <p><strong>Genre:</strong> @Model.Genre</p>
+        <p><strong>Release:</strong> @Model.ReleaseDate.ToShortDateString()</p>
+        <p><strong>Rating:</strong> @Model.Rating</p>
+    </div>
+</div>
