@@ -27,6 +27,6 @@ namespace RazorPagesMovie.Models
         public string? PosterUrl { get; set; }
         public string ImagePath { get; set; } = string.Empty;
 
-
+       
     }
 }

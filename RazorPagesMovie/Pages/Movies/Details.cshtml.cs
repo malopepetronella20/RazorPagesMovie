@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using RazorPagesMovie.Data;
@@ -14,9 +13,7 @@ namespace RazorPagesMovie.Pages.Movies
 
     public class DetailsModel : PageModel
     {
-        private readonly RazorPagesMovieContext _context;
 
-        public DetailsModel(RazorPagesMovieContext context)
         {
             _context = context;
         }
@@ -36,15 +33,7 @@ namespace RazorPagesMovie.Pages.Movies
             {
                 return NotFound();
             }
-
-            Movie = movie;
-
-            var ratings = await _context.Rating
-                .Where(r => r.MovieId == id)
-                .ToListAsync();
-
-            AverageRating = ratings.Any() ? ratings.Average(r => r.Stars) : 0;
-
+                Movie = movie;
             return Page();
         }
     }

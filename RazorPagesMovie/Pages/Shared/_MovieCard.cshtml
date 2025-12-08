@@ -1,43 +1,10 @@
 ﻿@model RazorPagesMovie.Models.Movie
 
-<div class="card movie-card shadow-sm">
-    <img src="~/images/@Model.ImagePath" class="card-img-top" alt="@Model.Title" />
 
-    <div class="card-body">
-        <h5 class="card-title">@Model.Title</h5>
-        <p class="card-text">
-            Genre: @Model.Genre <br />
-            Release: @Model.ReleaseDate.ToShortDateString() <br />
-            Price: @Model.Price.ToString("C")
-        </p>
+            @for (int i = 1; i <= 5; i++)
+            {
+            }
+        </div>
 
-        <!-- ⭐ Average Rating -->
-        @{
-            var avg = ViewData["AverageRating"] as double? ?? 0;
-        }
-
-        @if (avg > 0)
-        {
-            <p>
-                @for (int i = 1; i <= 5; i++)
-                {
-                    if (i <= Math.Round(avg))
-                    {
-                        <span style="color: gold;">★</span>
-                    }
-                    else
-                    {
-                        <span style="color: lightgray;">★</span>
-                    }
-                }
-                (@avg.ToString("0.0") stars)
-            </p>
-        }
-        else
-        {
-            <p>No ratings yet.</p>
-        }
-
-        <a asp-page="./Details" asp-route-id="@Model.Id" class="btn btn-sm btn-outline-primary">View Details</a>
     </div>
 </div>

@@ -12,7 +12,6 @@ builder.Services.AddDbContext<RazorPagesMovieContext>(options =>
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
-// ✅ Register Identity with roles enabled
 builder.Services.AddDefaultIdentity<IdentityUser>(options =>
 {
     options.SignIn.RequireConfirmedAccount = false; // set true if you want email confirmation
@@ -60,10 +59,9 @@ static async Task SeedRolesAndAdminAsync(RoleManager<IdentityRole> roleManager, 
         await roleManager.CreateAsync(new IdentityRole("Admin"));
     if (!await roleManager.RoleExistsAsync("User"))
         await roleManager.CreateAsync(new IdentityRole("User"));
-   
+
     // Create default admin account if it doesn't exist
     var adminEmail = "admin@lapetro.com";
-    var adminPassword = "Admin123!"; // ⚠️ Change to strong password in production
     var adminUser = await userManager.FindByEmailAsync(adminEmail);
 
     if (adminUser == null)
@@ -78,3 +76,5 @@ static async Task SeedRolesAndAdminAsync(RoleManager<IdentityRole> roleManager, 
         await userManager.AddToRoleAsync(adminUser, "Admin");
     }
 }
+
+app.Run();
