@@ -1,19 +1,20 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using RazorPagesMovie.Data;
 using RazorPagesMovie.Models;
-using System;
 using System.Linq;
 using System.Threading.Tasks;
 
 namespace RazorPagesMovie.Pages.Movies
 {
-    [Authorize] // or no attribute if public
-
+    [Authorize]
     public class DetailsModel : PageModel
     {
+        private readonly RazorPagesMovieContext _context;
 
+        public DetailsModel(RazorPagesMovieContext context)
         {
             _context = context;
         }
@@ -28,13 +29,22 @@ namespace RazorPagesMovie.Pages.Movies
                 return NotFound();
             }
 
-            var movie = await _context.Movie.FirstOrDefaultAsync(m => m.Id == id);
-            if (movie == null)
+            Movie = await _context.Movie
+          .Include(m => m.Ratings)
+          .FirstOrDefaultAsync(m => m.Id == id) ?? new Movie();
+
+
+            if (Movie == null)
             {
                 return NotFound();
             }
-                Movie = movie;
+
+            AverageRating = Movie.Ratings != null && Movie.Ratings.Any()
+                ? Movie.Ratings.Average(r => r.Stars)
+                : 0;
+
             return Page();
         }
+
     }
 }

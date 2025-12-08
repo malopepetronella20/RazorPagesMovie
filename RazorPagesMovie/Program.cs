@@ -62,6 +62,8 @@ static async Task SeedRolesAndAdminAsync(RoleManager<IdentityRole> roleManager, 
 
     // Create default admin account if it doesn't exist
     var adminEmail = "admin@lapetro.com";
+    var adminPassword = "Admin@123"; // ✅ Define a strong default password
+
     var adminUser = await userManager.FindByEmailAsync(adminEmail);
 
     if (adminUser == null)
@@ -76,5 +78,3 @@ static async Task SeedRolesAndAdminAsync(RoleManager<IdentityRole> roleManager, 
         await userManager.AddToRoleAsync(adminUser, "Admin");
     }
 }
-
-app.Run();

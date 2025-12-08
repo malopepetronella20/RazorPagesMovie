@@ -1,8 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
+﻿using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.AspNetCore.Authorization; // ✅ Added
 using RazorPagesMovie.Data;
 using RazorPagesMovie.Models;
 using System.Collections.Generic;
@@ -20,13 +18,8 @@ namespace RazorPagesMovie.Pages.Movies
             _context = context;
         }
 
-        [BindProperty(SupportsGet = true)]
-        public string? SearchString { get; set; }
-
-        public SelectList? Genres { get; set; }
-
-        [BindProperty(SupportsGet = true)]
-        public string? MovieGenre { get; set; }
+        public IList<Movie> Movie { get; set; } = default!;
+        public SelectList Genres { get; set; } = default!;
 
         public async Task OnGetAsync()
         {
@@ -34,12 +27,11 @@ namespace RazorPagesMovie.Pages.Movies
                                             orderby m.Genre
                                             select m.Genre;
 
-
-            {
+            var movies = from m in _context.Movie
+                         select m;
 
             Genres = new SelectList(await genreQuery.Distinct().ToListAsync());
             Movie = await movies.ToListAsync();
         }
-
     }
 }

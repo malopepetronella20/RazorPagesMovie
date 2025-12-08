@@ -26,7 +26,9 @@ namespace RazorPagesMovie.Models
         public string? StarRating { get; set; }
         public string? PosterUrl { get; set; }
         public string ImagePath { get; set; } = string.Empty;
+        public ICollection<Rating> Ratings { get; set; } = new List<Rating>();
 
-       
+
+
     }
 }

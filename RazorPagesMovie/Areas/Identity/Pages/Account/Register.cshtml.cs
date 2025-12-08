@@ -169,7 +169,8 @@ namespace RazorPagesMovie.Areas.Identity.Pages.Account
             }
             catch
             {
-                throw new InvalidOperationException($"Can't create an instance of '{nameof(IdentityUser)}'. " +
+                throw new InvalidOperationException($"Can't create an instance of '{nameof(IdentityUser)}'.");
+
             }
         }
 
