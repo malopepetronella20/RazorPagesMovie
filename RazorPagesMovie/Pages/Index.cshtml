@@ -1,5 +1,6 @@
 ﻿@page
-@model RazorPagesMovie.Pages.IndexModel
+@model RazorPagesMovie.Pages.Movies.IndexModel
+
 
 @{
     Layout = "_Layout";
@@ -10,7 +11,7 @@
 <partial name="_HeroSection" />
 
 <!-- Trending Now -->
-<partial name="_MovieCarousel" model="Model.TrendingMovies" />
+<partial name="_MovieCarousel" model="Model.Movies" />
 
 <!-- Featured Movies -->
 <partial name="_MovieCarousel" model="Model.FeaturedMovies" />

@@ -1,55 +1,35 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.EntityFrameworkCore;
-using RazorPagesMovie.Data;
+﻿using Microsoft.AspNetCore.Mvc.RazorPages;
 using RazorPagesMovie.Models;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace RazorPagesMovie.Pages.Movies
 {
     public class IndexModel : PageModel
     {
-        private readonly RazorPagesMovieContext _context;
+        public List<Movie> Movies { get; set; } = new();
+        public List<Movie> FeaturedMovies { get; set; } = new();
+        public List<SelectListItem> Genres { get; set; } = new();
+        public string SearchString { get; set; } = string.Empty;
+        public string MovieGenre { get; set; } = string.Empty;
 
-        public IndexModel(RazorPagesMovieContext context)
+        public void OnGet()
         {
-            _context = context;
-        }
-
-        public IList<Movie> Movie { get; set; } = default!;
-        public SelectList Genres { get; set; } = default!;
-
-        [BindProperty(SupportsGet = true)]
-        public string? MovieGenre { get; set; }
-
-        [BindProperty(SupportsGet = true)]
-        public string? SearchString { get; set; }
-
-        public async Task OnGetAsync()
-        {
-            // Get distinct genres
-            IQueryable<string> genreQuery = from m in _context.Movie
-                                            orderby m.Genre
-                                            select m.Genre;
-
-            // Base query
-            var movies = from m in _context.Movie
-                         select m;
-
-            // Filter by title
-            if (!string.IsNullOrEmpty(SearchString))
+            Movies = new List<Movie>
             {
-                movies = movies.Where(s => s.Title.Contains(SearchString));
-            }
+                new Movie { Title = "Inception", Genre = "Sci-Fi", ImagePath = "/images/inception.jpg", StarRating = "PG-13", ReleaseDate = DateTime.Parse("2010-07-16") },
+                new Movie { Title = "Interstellar", Genre = "Sci-Fi", ImagePath = "/images/interstellar.jpg", StarRating = "PG-13", ReleaseDate = DateTime.Parse("2014-11-07") }
+            };
 
-            // Filter by genre
-            if (!string.IsNullOrEmpty(MovieGenre))
-            {
-                movies = movies.Where(x => x.Genre == MovieGenre);
-            }
+            FeaturedMovies = Movies.Take(1).ToList();
 
-            Genres = new SelectList(await genreQuery.Distinct().ToListAsync());
-            Movie = await movies.ToListAsync();
+            Genres = Movies
+                .Select(m => m.Genre)
+                .Distinct()
+                .Select(g => new SelectListItem { Value = g, Text = g })
+                .ToList();
         }
     }
 }

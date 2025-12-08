@@ -1,10 +1,13 @@
 ﻿@model RazorPagesMovie.Models.Movie
 
-
-            @for (int i = 1; i <= 5; i++)
-            {
-            }
-        </div>
-
+<div class="movie-card card shadow-sm">
+    <img src="@Model.ImagePath" alt="@Model.Title" class="card-img-top movie-poster" />
+    <div class="card-body">
+        <h5 class="card-title">@Model.Title</h5>
+        <p class="card-text">
+            <strong>Genre:</strong> @Model.Genre <br />
+            <strong>Release:</strong> @Model.ReleaseDate.ToShortDateString() <br />
+            <strong>Rating:</strong> @Model.StarRating
+        </p>
     </div>
 </div>

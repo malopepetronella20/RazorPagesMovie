@@ -2,8 +2,12 @@
 @model RazorPagesMovie.Pages.Movies.IndexModel
 
 @{
+    ViewData["Title"] = "Home";
     Layout = "_Layout";
 }
+
+<partial name="_MovieCarousel" model="Model.Movies" />
+<partial name="_MovieCarousel" model="Model.FeaturedMovies" />
 
 <h1>Movies</h1>
 
