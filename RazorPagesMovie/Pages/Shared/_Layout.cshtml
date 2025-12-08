@@ -11,7 +11,18 @@
 </head>
 <body>
     <header>
-            <a class="navbar-brand" asp-page="/Index">LapetroMovies</a>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container-fluid">
+                <a class="navbar-brand" asp-page="/Index">LapetroMovies</a>
+
+                <div class="collapse navbar-collapse">
+                    <ul class="navbar-nav me-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="Identity" asp-page="/Account/Login">Login</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="Identity" asp-page="/Account/Register">Register</a>
+                        </li>
 
                         @if (User.IsInRole("Admin"))
                         {
@@ -23,9 +34,10 @@
                             </li>
                         }
                     </ul>
+
                     <ul class="navbar-nav ms-auto">
-                @if (User?.Identity != null && User.Identity.IsAuthenticated)
-                {
+                        @if (User?.Identity != null && User.Identity.IsAuthenticated)
+                        {
                             <li class="nav-item">
                                 <span class="nav-link text-light">
                                     Hello @User.Identity.Name!
@@ -35,18 +47,17 @@
                                 </span>
                             </li>
                             <li class="nav-item">
-                    <form asp-area="Identity"
-                          asp-page="/Account/Logout"
-                          asp-route-returnUrl="/"
-                          method="post"
-                          class="d-inline">
-                        <button type="submit" class="btn btn-outline-light">Logout</button>
-                    </form>
+                                <form asp-area="Identity"
+                                      asp-page="/Account/Logout"
+                                      asp-route-returnUrl="/"
+                                      method="post"
+                                      class="d-inline">
+                                    <button type="submit" class="btn btn-outline-light">Logout</button>
+                                </form>
                             </li>
-                }
-                else
-                {
-                }
+                        }
+                    </ul>
+                </div>
             </div>
         </nav>
     </header>
@@ -55,7 +66,9 @@
         @RenderBody()
     </main>
 
-        &copy; 2025 - LapetroMovies - <a asp-page="/Privacy" class="text-light">Privacy</a>
+    <footer class="bg-dark text-light text-center py-3">
+        &copy; 2025 - LapetroMovies -
+        <a asp-page="/Privacy" class="text-light">Privacy</a>
     </footer>
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
