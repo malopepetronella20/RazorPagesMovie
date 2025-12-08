@@ -1,0 +1,49 @@
+﻿@page
+@model RazorPagesMovie.Pages.Movies.IndexModel
+
+@{
+    Layout = "_Layout";
+    ViewData["Title"] = "Movies";
+}
+
+<h1>Movies</h1>
+
+<p>
+    <a asp-page="Create" class="btn btn-primary">Create New</a>
+</p>
+
+<form method="get" class="filter-form">
+    <p>
+        <select asp-for="MovieGenre" asp-items="Model.Genres">
+            <option value="">All</option>
+        </select>
+        <label>Title: <input type="text" asp-for="SearchString" /></label>
+        <input type="submit" value="Filter" class="btn btn-secondary" />
+    </p>
+</form>
+
+<div class="movie-grid">
+    @foreach (var movieWithRating in Model.Movies)
+    {
+
+        <div class="movie-card">
+            <partial name="_MovieCard" model="movieWithRating.Movie" />
+
+            <p>
+                Average Rating:
+                @for (int i = 1; i <= 5; i++)
+                {
+                    if (i <= Math.Round(movieWithRating.AverageRating))
+                    {
+                        <span style="color: gold;">★</span>
+                    }
+                    else
+                    {
+                        <span style="color: lightgray;">★</span>
+                    }
+                }
+                (@movieWithRating.AverageRating.ToString("0.0") stars)
+            </p>
+        </div>
+    }
+</div>

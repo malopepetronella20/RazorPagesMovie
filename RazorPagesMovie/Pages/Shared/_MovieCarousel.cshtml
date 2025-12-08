@@ -1,0 +1,12 @@
+﻿@model RazorPagesMovie.Models.MovieCarouselViewModel
+
+<section class="carousel-section">
+    <h2>@Model.Title</h2>
+    <div class="carousel">
+        @foreach (var movie in Model.Movies)
+        {
+            <partial name="_MovieCard" model="movie" />
+        }
+    </div>
+</section>
+

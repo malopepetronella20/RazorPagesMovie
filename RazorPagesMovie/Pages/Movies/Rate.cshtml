@@ -1,0 +1,16 @@
+﻿@page "{id:int}"
+@model RazorPagesMovie.Pages.Movies.RateModel
+@{
+    ViewData["Title"] = "Rate Movie";
+}
+
+<h2>Rate @(Model.Movie?.Title ?? "Unknown")</h2>
+
+<form method="post">
+    <div class="form-group">
+        <label>Stars (1–5)</label>
+        <input asp-for="Rating" type="number" min="1" max="5" class="form-control" />
+    </div>
+    <button type="submit" class="btn btn-pink">Submit Rating</button>
+</form>
+

@@ -1,0 +1,23 @@
+﻿@page
+@model RazorPagesMovie.Pages.IndexModel
+
+@{
+    Layout = "_Layout";
+    ViewData["Title"] = "Home";
+}
+
+<!-- Hero Section -->
+<partial name="_HeroSection" />
+
+<!-- Trending Now -->
+<partial name="_MovieCarousel" model="Model.TrendingMovies" />
+
+<!-- Featured Movies -->
+<partial name="_MovieCarousel" model="Model.FeaturedMovies" />
+
+<!-- Call to Action -->
+<section class="cta-section">
+    <h2>Join LapetroMovies Today</h2>
+    <p>Sign up to unlock exclusive content and personalized recommendations.</p>
+    <a class="btn btn-primary" asp-area="Identity" asp-page="/Account/Register">Sign Up</a>
+</section>

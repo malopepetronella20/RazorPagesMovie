@@ -1,0 +1,42 @@
+﻿@page
+@model LapetroMovies.Pages.ManageMovies.IndexModel
+@using Microsoft.AspNetCore.Identity
+@inject UserManager<IdentityUser> UserManager
+
+@{
+    ViewData["Title"] = "Manage Movies";
+}
+
+<h2>Manage Movies</h2>
+
+@if (Model.Movies != null && Model.Movies.Any())
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Genre</th>
+                <th>Release Date</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var movie in Model.Movies)
+            {
+                <tr>
+                    <td>@movie.Title</td>
+                    <td>@movie.Genre</td>
+                    <td>@movie.ReleaseDate.ToShortDateString()</td>
+                    <td>
+                        <a asp-page="/Movies/Edit" asp-route-id="@movie.Id">Edit</a> |
+                        <a asp-page="/Movies/Delete" asp-route-id="@movie.Id">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>No movies found.</p>
+}

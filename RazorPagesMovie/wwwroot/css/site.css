@@ -1,0 +1,322 @@
+/* Identity Login/Register Styling */
+.identity-container {
+    max-width: 500px;
+    margin: 4rem auto;
+    background-color: #2a2a2a; /* grey background */
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(255, 105, 180, 0.4); /* pink glow */
+    color: #f0f0f0;
+}
+.identity-background {
+    background: linear-gradient(to bottom right, #2c2c2c, #ff69b4); /* grey to pink */
+    color: white;
+    min-height: 100vh;
+    padding-top: 50px;
+}
+
+input, button {
+    background-color: #333;
+    color: white;
+    border: 1px solid #ff69b4;
+}
+
+    button:hover {
+        background-color: #ff69b4;
+        color: black;
+    }
+
+    .identity-container h1,
+    .identity-container h2 {
+        color: #ff69b4; /* pink titles */
+        text-align: center;
+        margin-bottom: 1.5rem;
+    }
+
+    .identity-container label {
+        font-weight: bold;
+        color: #f0f0f0;
+    }
+
+    .identity-container input {
+        background-color: #1a1a1a;
+        border: 1px solid #ff69b4;
+        color: #f0f0f0;
+        border-radius: 5px;
+        padding: 0.5rem;
+        width: 100%;
+        margin-bottom: 1rem;
+    }
+
+        .identity-container input:focus {
+            outline: none;
+            border-color: #f0f0f0;
+            box-shadow: 0 0 10px #ff69b4;
+        }
+
+    .identity-container .btn-primary {
+        background-color: #ff69b4;
+        border: none;
+        color: #1a1a1a;
+        font-weight: bold;
+        width: 100%;
+        padding: 0.75rem;
+        border-radius: 5px;
+        transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+        .identity-container .btn-primary:hover {
+            background-color: #f0f0f0;
+            color: #1a1a1a;
+            transform: scale(1.05);
+        }
+
+    .identity-container a {
+        color: #ff69b4;
+        text-decoration: none;
+    }
+
+        .identity-container a:hover {
+            text-decoration: underline;
+        }
+
+/* Base */
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #1a1a1a;
+    color: #f0f0f0;
+}
+
+/* Navbar */
+.navbar {
+    background-color: #2a2a2a;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar-brand {
+    color: #ff69b4;
+    font-weight: bold;
+    font-size: 1.5rem;
+    text-decoration: none;
+}
+
+.nav-links a {
+    color: #f0f0f0;
+    margin-left: 1rem;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+    .nav-links a:hover {
+        color: #ff69b4;
+    }
+
+/* Hero Section */
+.hero {
+    background: url('/images/hero-banner.jpg') center no-repeat;
+    background-size: cover;
+    height: 80vh;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+.hero-overlay {
+    background: rgba(0, 0, 0, 0.6);
+    padding: 3rem;
+    text-align: center;
+    border-radius: 10px;
+    max-width: 800px;
+}
+
+.hero-title {
+    font-size: 3.5rem;
+    font-weight: bold;
+    color: #ff69b4;
+    text-shadow: 0 0 20px #ff69b4;
+    margin-bottom: 1rem;
+}
+
+.hero-subtitle {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    color: #f0f0f0;
+}
+
+.hero-btn {
+    background-color: #ff69b4;
+    color: #1a1a1a;
+    padding: 1rem 2rem;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    font-weight: bold;
+    text-decoration: none;
+    box-shadow: 0 0 15px #ff69b4;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+    .hero-btn:hover {
+        background-color: #f0f0f0;
+        color: #1a1a1a;
+        transform: scale(1.05);
+    }
+
+/* Movie Rows */
+.trending-row, .featured-row {
+    padding: 2rem;
+    text-align: center;
+}
+
+    .trending-row h2, .featured-row h2 {
+        color: #ff69b4;
+        margin-bottom: 1rem;
+        font-size: 2rem;
+    }
+
+.scroll-row, .movie-row {
+    display: flex;
+    overflow-x: auto;
+    gap: 1rem;
+    padding-bottom: 1rem;
+}
+
+    .scroll-row::-webkit-scrollbar,
+    .movie-row::-webkit-scrollbar {
+        height: 8px;
+    }
+
+    .scroll-row::-webkit-scrollbar-thumb,
+    .movie-row::-webkit-scrollbar-thumb {
+        background-color: #ff69b4;
+        border-radius: 4px;
+    }
+
+/* Movie Card */
+.movie-card {
+    background-color: #2a2a2a;
+    border-radius: 10px;
+    padding: 1rem;
+    width: 250px;
+    color: #f0f0f0;
+    box-shadow: 0 0 10px rgba(255, 105, 180, 0.3);
+    transition: transform 0.3s ease;
+    flex-shrink: 0;
+}
+
+    .movie-card:hover {
+        transform: scale(1.05);
+    }
+
+.movie-poster {
+    width: 100%;
+    border-radius: 8px;
+    margin-bottom: 0.5rem;
+}
+
+.movie-info h3 {
+    color: #ff69b4;
+    margin: 0.5rem 0;
+}
+
+.star-rating {
+    margin: 0.5rem 0;
+}
+
+.star {
+    color: #555;
+    font-size: 1.2rem;
+}
+
+    .star.filled {
+        color: #ff69b4;
+    }
+
+/* CTA Section */
+.cta-section {
+    background-color: #2a2a2a;
+    padding: 3rem;
+    text-align: center;
+    margin-top: 3rem;
+    border-top: 2px solid #ff69b4;
+}
+
+    .cta-section h2 {
+        font-size: 2rem;
+        color: #ff69b4;
+        margin-bottom: 1rem;
+    }
+
+    .cta-section p {
+        font-size: 1.2rem;
+        margin-bottom: 2rem;
+        color: #f0f0f0;
+    }
+
+/* Footer */
+footer {
+    background-color: #2a2a2a;
+    padding: 1rem;
+    text-align: center;
+    color: #aaa;
+}
+.register-container {
+    max-width: 400px;
+    margin: 60px auto;
+    padding: 20px;
+    background: linear-gradient(to bottom, #1a1a2e, #ff69b4);
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(255, 105, 180, 0.5);
+}
+
+.register-form .form-group {
+    margin-bottom: 20px;
+}
+
+.btn-pink {
+    background-color: #ff69b4;
+    color: white;
+    border: none;
+}
+
+.text-pink {
+    color: #ff69b4;
+}
+body {
+    background: linear-gradient(to bottom, #1a1a2e, #ff69b4);
+}
+
+.auth-container {
+    max-width: 400px;
+    margin: 60px auto;
+    padding: 30px;
+    background-color: #000;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(255, 105, 180, 0.5);
+}
+
+.auth-form .form-group {
+    margin-bottom: 20px;
+}
+
+.btn-pink {
+    background-color: #ff69b4;
+    color: white;
+    border: none;
+    padding: 10px;
+    width: 100%;
+    border-radius: 5px;
+}
+
+.text-pink {
+    color: #ff69b4;
+}
+

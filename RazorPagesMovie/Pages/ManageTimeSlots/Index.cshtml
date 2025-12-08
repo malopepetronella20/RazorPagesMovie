@@ -1,0 +1,41 @@
+﻿@page
+@model LapetroMovies.Pages.ManageTimeSlots.IndexModel
+
+@{
+    ViewData["Title"] = "Manage Time Slots";
+}
+
+<h2>Manage Time Slots</h2>
+
+@if (Model.TimeSlots != null && Model.TimeSlots.Any())
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Movie</th>
+                <th>Start Time</th>
+                <th>End Time</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var slot in Model.TimeSlots)
+            {
+                <tr>
+                    <td>@slot.Movie.Title</td>
+                    <td>@slot.StartTime</td>
+                    <td>@slot.EndTime</td>
+                    <td>
+                        <a asp-page="/TimeSlots/Edit" asp-route-id="@slot.Id">Edit</a> |
+                        <a asp-page="/TimeSlots/Delete" asp-route-id="@slot.Id">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>No time slots found.</p>
+}
+

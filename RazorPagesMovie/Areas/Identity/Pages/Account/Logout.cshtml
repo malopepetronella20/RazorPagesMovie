@@ -1,0 +1,17 @@
+﻿@page
+@model RazorPagesMovie.Areas.Identity.Pages.Account.LogoutModel
+@{
+    Layout = "/Pages/Shared/_LayoutIdentity.cshtml";
+    ViewData["Title"] = "Log out";
+}
+
+<div class="identity-container">
+    <h1>@ViewData["Title"]</h1>
+
+    <form asp-area="Identity"
+          asp-page="/Account/Logout"
+          asp-route-returnUrl="@Url.Page("/Index")"
+          method="post">
+        <button type="submit" class="btn btn-primary">Logout</button>
+    </form>
+</div>
