@@ -9,8 +9,8 @@ builder.Services.AddDbContext<RazorPagesMovieContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("RazorPagesMovieContext")));
 
 // Register ApplicationDbContext for Identity
-builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = false)
-    .AddEntityFrameworkStores<ApplicationDbContext>();
+builder.Services.AddDbContext<ApplicationDbContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 builder.Services.AddDefaultIdentity<IdentityUser>(options =>
 {
@@ -54,15 +54,13 @@ app.Run();
 // ----------------- Helper Method -----------------
 static async Task SeedRolesAndAdminAsync(RoleManager<IdentityRole> roleManager, UserManager<IdentityUser> userManager)
 {
-    // Create roles if they don't exist
     if (!await roleManager.RoleExistsAsync("Admin"))
         await roleManager.CreateAsync(new IdentityRole("Admin"));
     if (!await roleManager.RoleExistsAsync("User"))
         await roleManager.CreateAsync(new IdentityRole("User"));
 
-    // Create default admin account if it doesn't exist
     var adminEmail = "admin@lapetro.com";
-    var adminPassword = "Admin@123"; // ✅ Define a strong default password
+    var adminPassword = "Admin@123";
 
     var adminUser = await userManager.FindByEmailAsync(adminEmail);
 
