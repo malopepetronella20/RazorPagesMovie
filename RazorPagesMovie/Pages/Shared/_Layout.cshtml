@@ -13,17 +13,27 @@
     <header>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container-fluid">
+                <!-- Brand -->
                 <a class="navbar-brand" asp-page="/Index">LapetroMovies</a>
-                <a asp-page="/About">About Us</a>
 
+                <!-- Toggle button for mobile -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
 
-                <div class="collapse navbar-collapse">
+                <!-- Collapsible content -->
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <!-- Left side navigation -->
                     <ul class="navbar-nav me-auto">
                         <li class="nav-item">
-                            <a class="nav-link" asp-area="Identity" asp-page="/Account/Login">Login</a>
+                            <a class="nav-link @(ViewContext.RouteData.Values["page"]?.ToString() == "/Index" ? "active" : "")" asp-page="/Index">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" asp-area="Identity" asp-page="/Account/Register">Register</a>
+                            <a class="btn btn-outline-light me-2" asp-area="Identity" asp-page="/Account/Login">Login</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="btn btn-primary" asp-area="Identity" asp-page="/Account/Register">Register</a>
                         </li>
 
                         @if (User.IsInRole("Admin"))
@@ -37,6 +47,7 @@
                         }
                     </ul>
 
+                    <!-- Right side user info -->
                     <ul class="navbar-nav ms-auto">
                         @if (User?.Identity != null && User.Identity.IsAuthenticated)
                         {

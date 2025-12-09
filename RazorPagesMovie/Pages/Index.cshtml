@@ -1,24 +1,35 @@
 ﻿@page
-@model RazorPagesMovie.Pages.Movies.IndexModel
-
-
+@model IndexModel
 @{
-    Layout = "_Layout";
     ViewData["Title"] = "Home";
 }
 
-<!-- Hero Section -->
-<partial name="_HeroSection" />
+<div class="text-center mt-5">
+    <h1 class="display-4 text-light">Welcome to LapetroMovies</h1>
+    <p class="lead text-muted">Unlimited Movies, Anytime — Stream trending titles and hidden gems in style.</p>
 
-<!-- Trending Now -->
-<partial name="_MovieCarousel" model="Model.Movies" />
+    <div class="mt-4">
+        <a class="btn btn-primary btn-lg me-2" asp-area="Identity" asp-page="/Account/Register">
+            Get Started
+        </a>
+        <a class="btn btn-outline-light btn-lg" asp-area="Identity" asp-page="/Account/Login">
+            Login
+        </a>
+    </div>
+</div>
 
-<!-- Featured Movies -->
-<partial name="_MovieCarousel" model="Model.FeaturedMovies" />
-
-<!-- Call to Action -->
-<section class="cta-section">
-    <h2>Join LapetroMovies Today</h2>
-    <p>Sign up to unlock exclusive content and personalized recommendations.</p>
-    <a class="btn btn-primary" asp-area="Identity" asp-page="/Account/Register">Sign Up</a>
-</section>
+<!-- Optional: Feature section -->
+<div class="row mt-5 text-light">
+    <div class="col-md-4">
+        <h3>🎬 Huge Library</h3>
+        <p>Browse blockbusters, classics, and indie gems all in one place.</p>
+    </div>
+    <div class="col-md-4">
+        <h3>⚡ Fast Streaming</h3>
+        <p>Optimized for smooth playback on any device, anywhere.</p>
+    </div>
+    <div class="col-md-4">
+        <h3>🔒 Secure Accounts</h3>
+        <p>Register and log in safely with role-based access for Admins and Users.</p>
+    </div>
+</div>
